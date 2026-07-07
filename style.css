@@ -1,18 +1,18 @@
    :root {
-       --bg: #f7fafc;
-       --bg2: #eef2ff;
+       --bg: #f9f8f6;
+       --bg2: #f3f2ef;
        --surface: #ffffff;
-       --border: #dbe4ef;
-       --border2: #cbd5e1;
-       --text: #0f172a;
-       --muted: #475569;
-       --accent: #2563eb;
-       --accent-lt: #e0efff;
-       --red: #ef4444;
+       --border: #e4e2dd;
+       --border2: #d0cdc7;
+       --text: #1a1917;
+       --muted: #7a7670;
+       --accent: #1d4ed8;
+       --accent-lt: #eff4ff;
+       --red: #dc2626;
        --serif: 'Instrument Serif', Georgia, serif;
        --mono: 'DM Mono', monospace;
        --sans: 'Outfit', sans-serif;
-       --radius: 14px;
+       --radius: 8px;
    }
 
    *,
@@ -158,7 +158,7 @@
    .hero {
        min-height: 100vh;
        display: grid;
-       grid-template-columns: 1fr minmax(360px, 520px);
+       grid-template-columns: 1fr 420px;
        gap: 4rem;
        align-items: center;
        padding: 0 4rem;
@@ -253,84 +253,64 @@
    /* hero right — info card */
    .hero-card {
        position: relative;
-       background: transparent;
-       border: none;
-       overflow: visible;
+       background: var(--surface);
+       border: 1px solid var(--border);
+       border-radius: 28px;
+       overflow: hidden;
        min-height: 520px;
-       display: flex;
-       align-items: center;
-       justify-content: center;
+       display: grid;
+       place-items: center;
        padding: 0;
+       box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
    }
 
    .hero-photo-wrap {
        position: relative;
        width: 100%;
-       min-height: 520px;
-       border-radius: 38px;
+       height: 100%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       background: var(--bg2);
        overflow: hidden;
-       box-shadow: 0 36px 80px rgba(15, 23, 42, 0.12);
-       background: #f8fbff;
    }
 
    .hero-photo {
        width: 100%;
        height: 100%;
-       object-fit: cover;
        display: block;
+       object-fit: cover;
+       object-position: center center;
        transition: transform 0.5s ease;
+       filter: saturate(0.95) brightness(0.98);
    }
 
    .hero-card:hover .hero-photo {
-       transform: scale(1.02);
+       transform: scale(1.03);
    }
 
    .hero-overlay {
        position: absolute;
        inset: 0;
-       background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.55) 45%, rgba(255, 255, 255, 0.9) 100%);
-       pointer-events: none;
-   }
-
-   .hero-photo-wrap::before {
-       content: '';
-       position: absolute;
-       top: -24px;
-       right: -24px;
-       width: 230px;
-       height: 230px;
-       background: radial-gradient(circle, rgba(37, 99, 235, 0.18), transparent 58%);
-       filter: blur(24px);
-       pointer-events: none;
-   }
-
-   .hero-photo-wrap::after {
-       content: '';
-       position: absolute;
-       bottom: -28px;
-       left: -28px;
-       width: 260px;
-       height: 260px;
-       background: radial-gradient(circle, rgba(96, 165, 250, 0.12), transparent 55%);
-       filter: blur(26px);
+       background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.72) 65%, rgba(255,255,255,0.94) 100%);
        pointer-events: none;
    }
 
    .hero-code-snippet {
        position: absolute;
        bottom: 1.5rem;
-       left: 1.5rem;
        right: 1.5rem;
-       max-width: 420px;
-       background: rgba(255, 255, 255, 0.9);
-       border: 1px solid rgba(148, 163, 184, 0.22);
-       border-radius: 20px;
-       padding: 1rem 1.2rem;
+       left: auto;
+       width: 340px;
+       max-width: calc(100% - 3rem);
+       background: rgba(255, 255, 255, 0.96);
+       border: 1px solid rgba(15, 23, 42, 0.06);
+       border-radius: 14px;
+       padding: 0.95rem 1rem;
        color: var(--text);
        font-family: var(--mono);
-       font-size: 0.82rem;
-       backdrop-filter: blur(10px);
-       box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
+       font-size: 0.84rem;
+       box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
    }
 
    .hero-code-snippet div {
